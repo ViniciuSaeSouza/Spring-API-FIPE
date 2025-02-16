@@ -6,6 +6,7 @@ import br.com.api_fipe.APITabelaFIPE.model.Veiculo;
 import br.com.api_fipe.APITabelaFIPE.service.ConsumoAPI;
 import br.com.api_fipe.APITabelaFIPE.service.ConverteDados;
 
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -108,5 +109,18 @@ public class Principal {
         listaVeiculos.stream()
                 .sorted(Comparator.comparing(x-> Double.parseDouble(x.valor().replaceAll("[^\\d,]","").replace(",", "."))))
                 .forEach(System.out::println);
+
+
+        System.out.println("Estatisticas: \n");
+
+        DoubleSummaryStatistics est = listaVeiculos.stream()
+                .collect(Collectors.summarizingDouble(x ->Double.parseDouble(x.valor().replaceAll("[^\\d,]","").replace(",", "."))));
+
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+
+        System.out.println("Maior valor: R$" + df.format(est.getMax()) +
+                "\nMédia de valores: R$" + String.format("%.2f", est.getAverage()) +
+                "\nMenor valor: R$" + String.format("%.2f", est.getMin()) +
+                "\nNúmero total de carros: " + est.getCount());
     }
 }
