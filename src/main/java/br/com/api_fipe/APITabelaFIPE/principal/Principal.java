@@ -119,8 +119,8 @@ public class Principal {
         DecimalFormat df = new DecimalFormat("#,##0.00");
 
         System.out.println("Maior valor: R$" + df.format(est.getMax()) +
-                "\nMédia de valores: R$" + String.format("%.2f", est.getAverage()) +
-                "\nMenor valor: R$" + String.format("%.2f", est.getMin()) +
+                "\nMédia de valores: R$" + df.format(est.getAverage()) +
+                "\nMenor valor: R$" + df.format(est.getMin()) +
                 "\nNúmero total de carros: " + est.getCount());
     }
 }
