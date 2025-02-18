@@ -3,11 +3,17 @@ Aplicação desenvolvida com Java, Spring Framework e Streams para consumir a AP
 
 📌 Tecnologias Utilizadas
 Java 17
+
 Spring Boot
+
 Maven para gerenciamento de dependências
+
 Jackson para desserialização de dados da API
+
 Streams e Lambdas para manipulação de listas
+
 Postman para testes de requisições
+
 🔧 Funcionalidades
 ✅ Consumo da API da Tabela FIPE
 ✅ Exibição de valores médios de veículos no console da IDE IntelliJ
